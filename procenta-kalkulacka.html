@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kalkulačka procent</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+}
+input{
+padding:10px;
+margin:5px;
+}
+button{
+padding:10px 20px;
+font-size:16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Kalkulačka procent</h1>
+
+<p>Kolik je X % z čísla?</p>
+
+<input type="number" id="percent" placeholder="Procenta">
+<input type="number" id="number" placeholder="Číslo">
+
+<br><br>
+
+<button onclick="calculate()">Spočítat</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculate(){
+
+let percent = document.getElementById("percent").value;
+let number = document.getElementById("number").value;
+
+let result = (percent/100) * number;
+
+document.getElementById("result").innerText =
+"Výsledek je: " + result;
+
+}
+
+</script>
+
+</body>
+</html>
