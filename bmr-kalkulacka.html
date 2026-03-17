@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>BMR Kalkulačka</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+background:#f5f5f5;
+}
+
+input, select{
+padding:10px;
+margin:5px;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>BMR Kalkulačka</h1>
+
+<p>
+BMR (bazální metabolismus) je množství kalorií,
+které vaše tělo spálí v klidu během jednoho dne.
+</p>
+
+<select id="gender">
+<option value="male">Muž</option>
+<option value="female">Žena</option>
+</select>
+
+<br>
+
+<input type="number" id="weight" placeholder="Váha (kg)"><br>
+<input type="number" id="height" placeholder="Výška (cm)"><br>
+<input type="number" id="age" placeholder="Věk"><br>
+
+<button onclick="calculateBMR()">Spočítat BMR</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculateBMR(){
+
+let weight = document.getElementById("weight").value;
+let height = document.getElementById("height").value;
+let age = document.getElementById("age").value;
+let gender = document.getElementById("gender").value;
+
+let bmr;
+
+if(gender == "male"){
+bmr = 10*weight + 6.25*height - 5*age + 5;
+}
+else{
+bmr = 10*weight + 6.25*height - 5*age - 161;
+}
+
+document.getElementById("result").innerText =
+"Tvůj BMR je přibližně " + Math.round(bmr) + " kalorií za den.";
+
+}
+
+</script>
+
+</body>
+</html>
