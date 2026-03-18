@@ -79,9 +79,14 @@ bmr = 10*weight + 6.25*height - 5*age - 161;
 
 let calories = bmr * activity;
 
-document.getElementById("result").innerText =
-"Tvůj denní příjem pro udržení váhy je přibližně " + Math.round(calories) + " kalorií.";
+let maintain = Math.round(calories);
+let lose = Math.round(calories - 500);
+let gain = Math.round(calories + 500);
 
+document.getElementById("result").innerHTML =
+"Udržení váhy: " + maintain + " kcal<br>" +
+"Hubnutí: " + lose + " kcal<br>" +
+"Nabírání svalů: " + gain + " kcal";
 }
 
 </script>
