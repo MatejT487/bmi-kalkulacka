@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Kalkulačka kalorií</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+background:#f5f5f5;
+}
+
+input, select{
+padding:10px;
+margin:5px;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Kalkulačka kalorií</h1>
+
+<p>
+Zjistěte, kolik kalorií denně potřebujete pro udržení váhy.
+</p>
+
+<select id="gender">
+<option value="male">Muž</option>
+<option value="female">Žena</option>
+</select>
+
+<br>
+
+<input type="number" id="weight" placeholder="Váha (kg)"><br>
+<input type="number" id="height" placeholder="Výška (cm)"><br>
+<input type="number" id="age" placeholder="Věk"><br>
+
+<select id="activity">
+<option value="1.2">Sedavý život (žádný pohyb)</option>
+<option value="1.375">Lehká aktivita (1–3x týdně)</option>
+<option value="1.55">Střední aktivita (3–5x týdně)</option>
+<option value="1.725">Vysoká aktivita (6–7x týdně)</option>
+<option value="1.9">Velmi vysoká aktivita</option>
+</select>
+
+<br><br>
+
+<button onclick="calculateCalories()">Spočítat kalorie</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculateCalories(){
+
+let weight = document.getElementById("weight").value;
+let height = document.getElementById("height").value;
+let age = document.getElementById("age").value;
+let gender = document.getElementById("gender").value;
+let activity = document.getElementById("activity").value;
+
+let bmr;
+
+if(gender == "male"){
+bmr = 10*weight + 6.25*height - 5*age + 5;
+}else{
+bmr = 10*weight + 6.25*height - 5*age - 161;
+}
+
+let calories = bmr * activity;
+
+document.getElementById("result").innerText =
+"Tvůj denní příjem pro udržení váhy je přibližně " + Math.round(calories) + " kalorií.";
+
+}
+
+</script>
+
+</body>
+</html>
