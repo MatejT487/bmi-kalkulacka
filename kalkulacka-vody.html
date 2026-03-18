@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Kalkulačka vody</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+background:#f5f5f5;
+}
+
+input, select{
+padding:10px;
+margin:5px;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Kalkulačka vody</h1>
+
+<p>
+Zjistěte, kolik vody byste měli denně vypít.
+</p>
+
+<input type="number" id="weight" placeholder="Váha (kg)"><br>
+
+<select id="activity">
+<option value="0">Nízká aktivita</option>
+<option value="0.5">Střední aktivita</option>
+<option value="1">Vysoká aktivita</option>
+</select>
+
+<br><br>
+
+<button onclick="calculateWater()">Spočítat</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculateWater(){
+
+let weight = document.getElementById("weight").value;
+let activity = document.getElementById("activity").value;
+
+let water = (weight * 0.035) + (activity * 0.5);
+
+document.getElementById("result").innerHTML =
+"Měl bys vypít přibližně " + water.toFixed(2) + " litrů vody denně.";
+
+}
+
+</script>
+
+</body>
+</html>
