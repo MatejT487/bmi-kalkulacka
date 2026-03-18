@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Kalkulačka proteinů</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+background:#f5f5f5;
+}
+
+input, select{
+padding:10px;
+margin:5px;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Kalkulačka proteinů</h1>
+
+<p>
+Zjistěte, kolik bílkovin denně potřebujete.
+</p>
+
+<input type="number" id="weight" placeholder="Váha (kg)"><br>
+
+<select id="goal">
+<option value="1.2">Udržení váhy</option>
+<option value="1.6">Budování svalů</option>
+<option value="2">Hubnutí</option>
+</select>
+
+<br><br>
+
+<button onclick="calculateProtein()">Spočítat</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculateProtein(){
+
+let weight = document.getElementById("weight").value;
+let goal = document.getElementById("goal").value;
+
+let protein = weight * goal;
+
+document.getElementById("result").innerHTML =
+"Potřebuješ přibližně " + Math.round(protein) + " g proteinů denně.";
+
+}
+
+</script>
+
+</body>
+</html>
