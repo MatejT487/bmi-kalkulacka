@@ -1,67 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness kalkulačky</title>
 
-<title>Fitness kalkulačky online – BMI, BMR a další</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-font-family: Arial;
-text-align:center;
-margin-top:80px;
-background:#f5f5f5;
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
 }
 
-h1{
-margin-bottom:40px;
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px 30px;
 }
 
-.menu{
-margin:20px;
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-a{
-display:block;
-width:250px;
-margin:10px auto;
-padding:15px;
-background:#4CAF50;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-size:18px;
+.hero p {
+    opacity: 0.9;
 }
 
-a:hover{
-background:#45a049;
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
 }
 
+/* KARTY */
+.card {
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* TITLE */
+.card h2 {
+    margin-bottom: 10px;
+}
+
+/* ICON */
+.icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
 </style>
-
 </head>
 
 <body>
 
-<h1>Fitness kalkulačky</h1>
+<div class="hero">
+    <h1>Fitness kalkulačky</h1>
+    <p>Rychlé a moderní nástroje pro tvoje fitness cíle</p>
+</div>
+
+<div class="grid">
+
+    <a href="bmi-kalkulacka.html" class="card">
+        <div class="icon">📊</div>
+        <h2>BMI kalkulačka</h2>
+        <p>Zjisti svou váhovou kategorii</p>
+    </a>
+
+  <a href="idealni-vaha.html" class="card">
+    <div class="icon">⚖️</div>
+    <h2>Ideální váha</h2>
+    <p>Vypočítej svou optimální váhu</p>
+  </a>
   
-<p>Online nástroje pro výpočet BMI, BMR a dalších fitness hodnot.</p>
+    <a href="kalkulacka-kalorii.html" class="card">
+        <div class="icon">🔥</div>
+        <h2>Kalorie</h2>
+        <p>Kolik kalorií denně potřebuješ</p>
+    </a>
 
-<div class="menu">
+    <a href="bmr-kalkulacka.html" class="card">
+        <div class="icon">⚡</div>
+        <h2>BMR</h2>
+        <p>Tvůj bazální metabolismus</p>
+    </a>
 
-<a href="bmi-kalkulacka.html">BMI kalkulačka</a>
+    <a href="kalkulacka-proteinu.html" class="card">
+        <div class="icon">💪</div>
+        <h2>Proteiny</h2>
+        <p>Denní příjem bílkovin</p>
+    </a>
 
-<a href="procenta-kalkulacka.html">Kalkulačka procent</a>
+    <a href="kalkulacka-vody.html" class="card">
+        <div class="icon">💧</div>
+        <h2>Voda</h2>
+        <p>Kolik vody vypít</p>
+    </a>
 
-<a href="bmr-kalkulacka.html">BMR kalkulačka</a>
-
-<a href="kalkulacka-kalorii.html">Kalkulačka kalorií</a>
-
-<a href="idealni-vaha.html">Ideální váha</a>
-
-<a href="kalkulacka-proteinu.html">Kalkulačka proteinů</a>
-
-<a href="kalkulacka-vody.html">Kalkulačka vody</a>
+    <a href="procenta-kalkulacka.html" class="card">
+        <div class="icon">📈</div>
+        <h2>Procenta</h2>
+        <p>Rychlé výpočty procent</p>
+    </a>
 
 </div>
 
