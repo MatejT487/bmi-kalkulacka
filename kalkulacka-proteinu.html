@@ -1,100 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kalkulačka proteinů</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body{
-font-family: Arial;
-text-align:center;
-margin-top:100px;
-background:#f5f5f5;
-}
-ul{
-list-style: none;
-padding: 0;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-li{
-margin: 10px 0;
-}
-a:hover{
-color: red;
-}
-input{
-padding:10px;
-margin:5px;
-}
-button{
-padding:12px 25px;
-font-size:16px;
-background:#4CAF50;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #9c27b0;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #7b1fa2;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
 </style>
-
 </head>
 
 <body>
 
-<h1>Kalkulačka proteinů</h1>
+<div class="container">
+    <h1>Kalkulačka proteinů</h1>
 
-<p>
-Zjistěte, kolik bílkovin denně potřebujete.
-</p>
+    <input type="number" id="weight" placeholder="Váha (kg)">
 
-<input type="number" id="weight" placeholder="Váha (kg)"><br>
+    <select id="goal">
+        <option value="1.2">Udržování</option>
+        <option value="1.6">Lehké nabírání</option>
+        <option value="2.0">Nabírání svalů</option>
+        <option value="2.2">Rýsování</option>
+    </select>
 
-<select id="goal">
-<option value="1.2">Udržení váhy</option>
-<option value="1.6">Budování svalů</option>
-<option value="2">Hubnutí</option>
-</select>
+    <button onclick="calculateProtein()">Spočítat proteiny</button>
 
-<br><br>
-
-<button onclick="calculateProtein()">Spočítat</button>
-
-<p id="result"></p>
-
-<h3>Kolik proteinů denně přijímat?</h3>
-  
-<p>
-Bílkoviny jsou důležité pro růst svalů a regeneraci organismu.
-Denní potřeba proteinů závisí na vaší váze a cíli.
-Při sportu nebo hubnutí je příjem proteinů obvykle vyšší.
-Správné množství bílkovin pomáhá zlepšit výsledky ve fitness.
-</p>
-
-<h3>Další kalkulačky</h3>
-
-<ul>
-<li><a href="bmr-kalkulacka.html">BMR kalkulačka</a><li>
-<li><a href="kalkulacka-kalorii.html">Kalkulačka kalorií</a><li>
-<li><a href="idealni-vaha.html">Ideální váha</a><li>
-<li><a href="procenta-kalkulacka.html">Kalkulačka procent</a><li>
-<li><a href="kalkulacka-vody.html">Kalkulačka vody</a><li>
-</ul>
+    <div class="result" id="result"></div>
+</div>
 
 <script>
+function calculateProtein() {
+    let weight = document.getElementById("weight").value;
+    let goal = document.getElementById("goal").value;
 
-function calculateProtein(){
+    if (!weight) {
+        document.getElementById("result").innerHTML = "Zadej váhu!";
+        return;
+    }
 
-let weight = document.getElementById("weight").value;
-let goal = document.getElementById("goal").value;
+    let protein = weight * goal;
+    protein = Math.round(protein);
 
-let protein = weight * goal;
-
-document.getElementById("result").innerHTML =
-"Potřebuješ přibližně " + Math.round(protein) + " g proteinů denně.";
-
+    document.getElementById("result").innerHTML =
+        `Denní příjem proteinů: ${protein} g`;
 }
-
 </script>
 
 </body>
