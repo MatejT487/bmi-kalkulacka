@@ -134,8 +134,8 @@ function calculateBMI() {
     text = "Obezita";
   }
 
-  document.getElementById("result").innerText = 
-    `Tvoje BMI je ${bmi} (${text})`;
+  document.getElementById("result").innerHTML = 
+  `Tvoje BMI je <strong>${bmi}</strong><br>${text}`;
 }
 </script>
 
