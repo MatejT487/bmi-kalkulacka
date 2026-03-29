@@ -120,7 +120,7 @@ function calculateBMI() {
   }
 
   let bmi = weight / ((height / 100) ** 2);
-  bmi = bmi.toFixed(1);
+  bmi = parseFloat(bmi.toFixed(1));
 
   let text = "";
 
