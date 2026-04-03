@@ -148,10 +148,15 @@ function calculateBMR() {
 
   document.getElementById("result").style.color = "#666";
   document.getElementById("result").innerHTML =
-    `<strong>Denní příjem kalorií🔥</strong><br><br>
-     <span style="color: green;"><strong>Udržení:</strong> ${tdee} kcal</span><br>
-     <span style="color: blue;"><strong>Hubnutí:</strong> ${cut} kcal</span><br>
-     <span style="color: red;"><strong>Nabírání:</strong> ${bulk} kcal</span>`;
+  `<strong>Denní příjem kalorií 🔥</strong><br><br>
+
+   <span style="color: green;"><strong>Udržení:</strong> <strong>${tdee}</strong> kcal</span><br><br>
+
+   <span style="color: blue;"><strong>Hubnutí:</strong> <strong>${cut}</strong> kcal</span><br><br>
+
+   <span style="color: red;"><strong>Nabírání:</strong> <strong>${bulk}</strong> kcal</span>
+
+   <br><br><small style="color:#666;">Hodnoty jsou orientační</small>`;
 }
 </script>
 
