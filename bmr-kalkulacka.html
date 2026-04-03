@@ -147,10 +147,11 @@ function calculateBMR() {
   let bulk = tdee + 300;
 
   document.getElementById("result").innerHTML =
-    `Udržení váhy: <strong>${tdee} kcal</strong><br>
-     Hubnutí: ${cut} kcal<br>
-     Nabírání: ${bulk} kcal`;
-}
+  `<strong>Denní příjem kalorií🔥</strong><br><br>
+   <span style="color: green;"><strong>Udržení:</strong> ${tdee} kcal</span><br>
+   <span style="color: blue;"><strong>Hubnutí:</strong> ${cut} kcal</span><br>
+   <span style="color: red;"><strong>Nabírání:</strong> ${bulk} kcal</span>`;
+    }
 </script>
 
 </body>
