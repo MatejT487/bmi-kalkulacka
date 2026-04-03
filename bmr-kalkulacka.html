@@ -115,7 +115,7 @@ button:hover {
 
     <button onclick="calculateBMR()">Spočítat kalorie</button>
 
-    <div class="result" id="result" style="color: #666;">
+<div class="result" id="result" style="color: #666;">
   Vyplň údaje pro výpočet 👇
 </div>
 </div>
@@ -129,7 +129,7 @@ function calculateBMR() {
   let activity = document.getElementById("activity").value;
 
   if (age === "" || height === "" || weight === "") {
-    document.getElementById("result").style.color = "black";
+    document.getElementById("result").style.color = "#666";
     document.getElementById("result").innerText = "Vyplň všechny údaje.";
     return;
   }
@@ -143,16 +143,16 @@ function calculateBMR() {
   }
 
   let tdee = Math.round(bmr * activity);
-
   let cut = tdee - 300;
   let bulk = tdee + 300;
 
+  document.getElementById("result").style.color = "#666";
   document.getElementById("result").innerHTML =
-  `<strong>Denní příjem kalorií🔥</strong><br><br>
-   <span style="color: green;"><strong>Udržení:</strong> ${tdee} kcal</span><br>
-   <span style="color: blue;"><strong>Hubnutí:</strong> ${cut} kcal</span><br>
-   <span style="color: red;"><strong>Nabírání:</strong> ${bulk} kcal</span>`;
-    }
+    `<strong>Denní příjem kalorií🔥</strong><br><br>
+     <span style="color: green;"><strong>Udržení:</strong> ${tdee} kcal</span><br>
+     <span style="color: blue;"><strong>Hubnutí:</strong> ${cut} kcal</span><br>
+     <span style="color: red;"><strong>Nabírání:</strong> ${bulk} kcal</span>`;
+}
 </script>
 
 </body>
