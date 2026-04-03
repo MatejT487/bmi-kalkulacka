@@ -17,12 +17,11 @@ body {
     height: 100vh;
 }
 
-/* KARTA */
 .container {
     background: white;
     padding: 30px;
     border-radius: 20px;
-    width: 340px;
+    width: 320px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
 }
@@ -31,39 +30,47 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* INPUTY */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
 input, select {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 0;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
 
-/* BUTTON */
 button {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    background: #2196f3;
+    background: #4CAF50;
     border: none;
     color: white;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 button:hover {
-    background: #1976d2;
+    background: #45a049;
 }
 
-/* VÝSLEDEK */
 .result {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: 1.5;
 }
 </style>
 </head>
@@ -73,44 +80,75 @@ button:hover {
 <div class="container">
     <h1>BMR Kalkulačka</h1>
 
-    <input type="number" id="age" placeholder="Věk">
-    <input type="number" id="height" placeholder="Výška (cm)">
-    <input type="number" id="weight" placeholder="Váha (kg)">
+    <div class="input-group">
+        <label>Věk</label>
+        <input type="number" id="age" placeholder="Např. 25">
+    </div>
 
-    <select id="gender">
-        <option value="male">Muž</option>
-        <option value="female">Žena</option>
-    </select>
+    <div class="input-group">
+        <label>Výška (cm)</label>
+        <input type="number" id="height" placeholder="Např. 180">
+    </div>
 
-    <button onclick="calculateBMR()">Spočítat BMR</button>
+    <div class="input-group">
+        <label>Váha (kg)</label>
+        <input type="number" id="weight" placeholder="Např. 75">
+    </div>
 
-    <div class="result" id="result"></div>
+    <div class="input-group">
+        <label>Pohlaví</label>
+        <select id="gender">
+            <option value="male">Muž</option>
+            <option value="female">Žena</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Aktivita</label>
+        <select id="activity">
+            <option value="1.2">Sedavý život</option>
+            <option value="1.375">Lehká aktivita</option>
+            <option value="1.55">Střední aktivita</option>
+            <option value="1.725">Vysoká aktivita</option>
+        </select>
+    </div>
+
+    <button onclick="calculateBMR()">Spočítat</button>
+
+    <div class="result" id="result">Zadej údaje a klikni na tlačítko</div>
 </div>
 
 <script>
 function calculateBMR() {
-    let age = document.getElementById("age").value;
-    let height = document.getElementById("height").value;
-    let weight = document.getElementById("weight").value;
-    let gender = document.getElementById("gender").value;
+  let age = document.getElementById("age").value;
+  let height = document.getElementById("height").value;
+  let weight = document.getElementById("weight").value;
+  let gender = document.getElementById("gender").value;
+  let activity = document.getElementById("activity").value;
 
-    if (!age || !height || !weight) {
-        document.getElementById("result").innerHTML = "Vyplň všechna pole!";
-        return;
-    }
+  if (age === "" || height === "" || weight === "") {
+    document.getElementById("result").style.color = "black";
+    document.getElementById("result").innerText = "Vyplň všechny údaje.";
+    return;
+  }
 
-    let bmr;
+  let bmr;
 
-    if (gender === "male") {
-        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-    } else {
-        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-    }
+  if (gender === "male") {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  }
 
-    bmr = Math.round(bmr);
+  let tdee = Math.round(bmr * activity);
 
-    document.getElementById("result").innerHTML =
-        `Tvůj BMR je: ${bmr} kcal`;
+  let cut = tdee - 300;
+  let bulk = tdee + 300;
+
+  document.getElementById("result").innerHTML =
+    `Udržení váhy: <strong>${tdee} kcal</strong><br>
+     Hubnutí: ${cut} kcal<br>
+     Nabírání: ${bulk} kcal`;
 }
 </script>
 
