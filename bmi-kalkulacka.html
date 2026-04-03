@@ -114,56 +114,42 @@ button:hover {
 function calculateBMI() {
   let height = document.getElementById("height").value;
   let weight = document.getElementById("weight").value;
+  let bar = document.querySelector(".bar");
 
   if (height === "" || weight === "") {
-  document.getElementById("result").style.color = "black";
-  document.getElementById("result").innerText = "Vyplň všechny údaje.";
-  return;
-}
+    document.getElementById("result").style.color = "black";
+    document.getElementById("result").innerText = "Vyplň všechny údaje.";
+    bar.style.background = "linear-gradient(to right, blue, green, orange, red)";
+    return;
+  }
 
   let bmi = weight / ((height / 100) ** 2);
   bmi = parseFloat(bmi.toFixed(1));
 
   let message = "";
+  let color = "";
 
-if (bmi < 18.5) {
-  message = "Podváha – zvaž zvýšení příjmu kalorií.";
-} else if (bmi < 25) {
-  message = "Normální váha – skvělá práce 👍";
-} else if (bmi < 30) {
-  message = "Nadváha – můžeš lehce upravit jídelníček.";
-} else {
-  message = "Obezita – doporučujeme zaměřit se na zdravý životní styl.";
-}
-    
-    let color = "";
+  if (bmi < 18.5) {
+    message = "Podváha – zvaž zvýšení příjmu kalorií.";
+    color = "blue";
+    bar.style.background = "blue";
+  } else if (bmi < 25) {
+    message = "Normální váha – skvělá práce 👍";
+    color = "green";
+    bar.style.background = "green";
+  } else if (bmi < 30) {
+    message = "Nadváha – můžeš lehce upravit jídelníček.";
+    color = "orange";
+    bar.style.background = "orange";
+  } else {
+    message = "Obezita – doporučujeme zaměřit se na zdravý životní styl.";
+    color = "red";
+    bar.style.background = "red";
+  }
 
-if (bmi < 18.5) {
-  color = "blue";
-} else if (bmi < 25) {
-  color = "green";
-} else if (bmi < 30) {
-  color = "orange";
-} else {
-  color = "red";
-}
-
-    let bar = document.querySelector(".bar");
-
-if (bmi < 18.5) {
-  bar.style.background = "blue";
-} else if (bmi < 25) {
-  bar.style.background = "green";
-} else if (bmi < 30) {
-  bar.style.background = "orange";
-} else {
-  bar.style.background = "red";
-}
-
-document.getElementById("result").style.color = color;
-
-  document.getElementById("result").innerHTML = 
-  `Tvoje BMI je <strong>${bmi}</strong><br>${message}<br><small>Ideální rozmezí je 18.5 – 24.9</small>`
+  document.getElementById("result").style.color = color;
+  document.getElementById("result").innerHTML =
+    `Tvoje BMI je <strong>${bmi}</strong><br>${message}<br><small>Ideální rozmezí je 18.5 – 24.9</small>`;
 }
 </script>
 
