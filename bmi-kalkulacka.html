@@ -148,6 +148,18 @@ if (bmi < 18.5) {
   color = "red";
 }
 
+    let bar = document.querySelector(".bar");
+
+if (bmi < 18.5) {
+  bar.style.background = "blue";
+} else if (bmi < 25) {
+  bar.style.background = "green";
+} else if (bmi < 30) {
+  bar.style.background = "orange";
+} else {
+  bar.style.background = "red";
+}
+
 document.getElementById("result").style.color = color;
 
   document.getElementById("result").innerHTML = 
