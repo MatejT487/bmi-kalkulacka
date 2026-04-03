@@ -116,9 +116,10 @@ function calculateBMI() {
   let weight = document.getElementById("weight").value;
 
   if (height === "" || weight === "") {
-    document.getElementById("result").innerText = "Vyplň všechny údaje.";
-    return;
-  }
+  document.getElementById("result").style.color = "black";
+  document.getElementById("result").innerText = "Vyplň všechny údaje.";
+  return;
+}
 
   let bmi = weight / ((height / 100) ** 2);
   bmi = parseFloat(bmi.toFixed(1));
