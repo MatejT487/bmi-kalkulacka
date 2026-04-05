@@ -21,7 +21,7 @@ body {
     background: white;
     padding: 30px;
     border-radius: 20px;
-    width: 340px;
+    width: 320px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
 }
@@ -30,10 +30,21 @@ h1 {
     margin-bottom: 20px;
 }
 
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
 input, select {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 0;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -42,24 +53,24 @@ input, select {
 button {
     width: 100%;
     padding: 12px;
-    margin-top: 10px;
-    background: #9c27b0;
+    margin-top: 15px;
+    background: #4CAF50;
     border: none;
     color: white;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 button:hover {
-    background: #7b1fa2;
+    background: #45a049;
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 25px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: 1.6;
 }
 </style>
 </head>
@@ -69,35 +80,54 @@ button:hover {
 <div class="container">
     <h1>Kalkulačka proteinů</h1>
 
-    <input type="number" id="weight" placeholder="Váha (kg)">
+    <div class="input-group">
+        <label>Váha (kg)</label>
+        <input type="number" id="weight" placeholder="Např. 75">
+    </div>
 
-    <select id="goal">
-        <option value="1.2">Udržování</option>
-        <option value="1.6">Lehké nabírání</option>
-        <option value="2.0">Nabírání svalů</option>
-        <option value="2.2">Rýsování</option>
-    </select>
+    <div class="input-group">
+        <label>Cíl</label>
+        <select id="goal">
+            <option value="1.6">Udržení</option>
+            <option value="2.0">Hubnutí</option>
+            <option value="2.2">Nabírání svalů</option>
+        </select>
+    </div>
 
     <button onclick="calculateProtein()">Spočítat proteiny</button>
 
-    <div class="result" id="result"></div>
+    <div class="result" id="result" style="color: #555;">
+        Vyplň údaje a zjisti svůj denní příjem 💪
+    </div>
 </div>
 
 <script>
 function calculateProtein() {
-    let weight = document.getElementById("weight").value;
-    let goal = document.getElementById("goal").value;
+  let weight = document.getElementById("weight").value;
+  let goal = parseFloat(document.getElementById("goal").value);
 
-    if (!weight) {
-        document.getElementById("result").innerHTML = "Zadej váhu!";
-        return;
-    }
+  if (weight === "") {
+    document.getElementById("result").style.color = "#555";
+    document.getElementById("result").innerText = "Vyplň všechny údaje.";
+    return;
+  }
 
-    let protein = weight * goal;
-    protein = Math.round(protein);
+  let protein = Math.round(weight * goal);
 
-    document.getElementById("result").innerHTML =
-        `Denní příjem proteinů: ${protein} g`;
+  let goalText = "";
+  if (goal === 1.6) {
+    goalText = "Udržení";
+  } else if (goal === 2.0) {
+    goalText = "Hubnutí";
+  } else {
+    goalText = "Nabírání svalů";
+  }
+
+  document.getElementById("result").style.color = "#555";
+  document.getElementById("result").innerHTML =
+    `<strong>Denní příjem proteinů 💪</strong><br><br>
+     <span style="color: green;"><strong>${goalText}:</strong> <strong>${protein}</strong> g</span>
+     <br><br><small style="color:#666;">Hodnoty jsou orientační</small>`;
 }
 </script>
 
