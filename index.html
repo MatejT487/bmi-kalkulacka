@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fitness kalkulačky</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -13,56 +13,105 @@ body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #4CAF50, #2e7d32);
     color: white;
+    min-height: 100vh;
 }
 
-/* HERO */
 .hero {
     text-align: center;
     padding: 60px 20px 30px;
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 56px;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 .hero p {
-    opacity: 0.9;
+    font-size: 18px;
+    opacity: 0.95;
+    margin: 0;
 }
 
-/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 24px;
     padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* KARTY */
 .card {
     background: white;
     color: black;
-    padding: 25px;
-    border-radius: 20px;
+    padding: 28px 22px;
+    border-radius: 24px;
     text-align: center;
     text-decoration: none;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transition: 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 170px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
 }
 
-/* TITLE */
-.card h2 {
-    margin-bottom: 10px;
-}
-
-/* ICON */
 .icon {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 34px;
+    margin-bottom: 14px;
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 16px 20px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .grid {
+        padding: 20px 16px 30px;
+        gap: 18px;
+    }
+
+    .card {
+        min-height: 150px;
+        padding: 24px 18px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 15px;
+    }
 }
 </style>
 </head>
@@ -75,49 +124,47 @@ body {
 </div>
 
 <div class="grid">
-
     <a href="bmi-kalkulacka.html" class="card">
         <div class="icon">📊</div>
         <h2>BMI kalkulačka</h2>
-        <p>Zjisti svou váhovou kategorii</p>
+        <p>Spočítej své BMI</p>
     </a>
 
-  <a href="idealni-vaha.html" class="card">
-    <div class="icon">⚖️</div>
-    <h2>Ideální váha</h2>
-    <p>Vypočítej svou optimální váhu</p>
-  </a>
-  
+    <a href="idealni-vaha.html" class="card">
+        <div class="icon">⚖️</div>
+        <h2>Ideální váha</h2>
+        <p>Zjisti ideální váhu</p>
+    </a>
+
     <a href="kalkulacka-kalorii.html" class="card">
         <div class="icon">🔥</div>
         <h2>Kalorie</h2>
-        <p>Kolik kalorií denně potřebuješ</p>
+        <p>Spočítej denní kalorie</p>
     </a>
 
     <a href="bmr-kalkulacka.html" class="card">
         <div class="icon">⚡</div>
         <h2>BMR</h2>
-        <p>Tvůj bazální metabolismus</p>
+        <p>Zjisti svůj BMR</p>
     </a>
 
     <a href="kalkulacka-proteinu.html" class="card">
         <div class="icon">💪</div>
         <h2>Proteiny</h2>
-        <p>Denní příjem bílkovin</p>
+        <p>Spočítej příjem proteinů</p>
     </a>
 
     <a href="kalkulacka-vody.html" class="card">
         <div class="icon">💧</div>
         <h2>Voda</h2>
-        <p>Kolik vody vypít</p>
+        <p>Zjisti denní příjem vody</p>
     </a>
 
     <a href="procenta-kalkulacka.html" class="card">
         <div class="icon">📈</div>
         <h2>Procenta</h2>
-        <p>Rychlé výpočty procent</p>
+        <p>Vypočítej procenta</p>
     </a>
-
 </div>
 
 </body>
