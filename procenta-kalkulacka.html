@@ -146,7 +146,11 @@ function calculatePercent() {
     document.getElementById("result").style.color = "#555";
     document.getElementById("result").innerHTML =
         `<strong>Výsledek procent 📊</strong><br><br>
-         <span style="color: green;"><strong>${percent} % z ${base}</strong> je <strong>${result}</strong></span>
+         <span style="color: green; font-size: 20px;">
+<strong>${result}</strong>
+</span>
+
+<br><small>${percent} % z ${base}</small>
          <br><br><small style="color:#666;">Hodnoty jsou orientační</small>`;
 }
 
