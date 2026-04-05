@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -30,10 +30,29 @@ h1 {
     margin-bottom: 20px;
 }
 
+.section-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
 input {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 0;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -42,24 +61,30 @@ input {
 button {
     width: 100%;
     padding: 12px;
-    margin-top: 10px;
-    background: #607d8b;
+    margin-top: 15px;
+    background: #4CAF50;
     border: none;
     color: white;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 button:hover {
-    background: #455a64;
+    background: #45a049;
 }
 
 .result {
-    margin-top: 20px;
+    margin-top: 25px;
     font-size: 18px;
     font-weight: 600;
+    line-height: 1.6;
+}
+
+.divider {
+    height: 1px;
+    background: #e5e5e5;
+    margin: 25px 0 10px;
 }
 </style>
 </head>
@@ -69,29 +94,100 @@ button:hover {
 <div class="container">
     <h1>Kalkulačka procent</h1>
 
-    <input type="number" id="value" placeholder="Kolik je X">
-    <input type="number" id="percent" placeholder="Kolik %">
+    <div class="section-title">1. Kolik je X % z Y</div>
 
-    <button onclick="calculatePercent()">Spočítat</button>
+    <div class="input-group">
+        <label>Procenta (%)</label>
+        <input type="number" id="percent" placeholder="Např. 20">
+    </div>
 
-    <div class="result" id="result"></div>
+    <div class="input-group">
+        <label>Z čísla</label>
+        <input type="number" id="base" placeholder="Např. 1500">
+    </div>
+
+    <button onclick="calculatePercent()">Spočítat procenta</button>
+
+    <div class="divider"></div>
+
+    <div class="section-title">2. O kolik % se změnila hodnota</div>
+
+    <div class="input-group">
+        <label>Původní hodnota</label>
+        <input type="number" id="oldValue" placeholder="Např. 1000">
+    </div>
+
+    <div class="input-group">
+        <label>Nová hodnota</label>
+        <input type="number" id="newValue" placeholder="Např. 1250">
+    </div>
+
+    <button onclick="calculateChange()">Spočítat změnu</button>
+
+    <div class="result" id="result" style="color: #555;">
+        Vyplň údaje a zjisti výsledek 📊
+    </div>
 </div>
 
 <script>
 function calculatePercent() {
-    let value = document.getElementById("value").value;
     let percent = document.getElementById("percent").value;
+    let base = document.getElementById("base").value;
 
-    if (!value || !percent) {
-        document.getElementById("result").innerHTML = "Vyplň všechna pole!";
+    if (percent === "" || base === "") {
+        document.getElementById("result").style.color = "#555";
+        document.getElementById("result").innerText = "Vyplň všechny údaje pro první výpočet.";
         return;
     }
 
-    let result = (value * percent) / 100;
-    result = result.toFixed(2);
+    let result = (percent / 100) * base;
+    result = parseFloat(result.toFixed(2));
 
+    document.getElementById("result").style.color = "#555";
     document.getElementById("result").innerHTML =
-        `${percent}% z ${value} je ${result}`;
+        `<strong>Výsledek procent 📊</strong><br><br>
+         <span style="color: green;"><strong>${percent} % z ${base}</strong> je <strong>${result}</strong></span>
+         <br><br><small style="color:#666;">Hodnoty jsou orientační</small>`;
+}
+
+function calculateChange() {
+    let oldValue = document.getElementById("oldValue").value;
+    let newValue = document.getElementById("newValue").value;
+
+    if (oldValue === "" || newValue === "") {
+        document.getElementById("result").style.color = "#555";
+        document.getElementById("result").innerText = "Vyplň všechny údaje pro druhý výpočet.";
+        return;
+    }
+
+    if (parseFloat(oldValue) === 0) {
+        document.getElementById("result").style.color = "#555";
+        document.getElementById("result").innerText = "Původní hodnota nesmí být 0.";
+        return;
+    }
+
+    let change = ((newValue - oldValue) / oldValue) * 100;
+    change = parseFloat(change.toFixed(2));
+
+    let text = "";
+    let color = "";
+
+    if (change > 0) {
+        text = `Nárůst o ${change} %`;
+        color = "green";
+    } else if (change < 0) {
+        text = `Pokles o ${Math.abs(change)} %`;
+        color = "red";
+    } else {
+        text = "Žádná změna (0 %)";
+        color = "#555";
+    }
+
+    document.getElementById("result").style.color = "#555";
+    document.getElementById("result").innerHTML =
+        `<strong>Změna hodnoty 📈</strong><br><br>
+         <span style="color: ${color};"><strong>${text}</strong></span>
+         <br><br><small style="color:#666;">Porovnání ${oldValue} → ${newValue}</small>`;
 }
 </script>
 
