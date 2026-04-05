@@ -77,7 +77,7 @@ button:hover {
 
 .result {
     margin-top: 25px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.6;
 }
@@ -146,11 +146,11 @@ function calculatePercent() {
 
     document.getElementById("result").style.color = "#555";
     document.getElementById("result").innerHTML =
-    `<strong>Výsledek procent 📊</strong><br><br>
-     <span style="color: green; font-size: 20px;">
-       <strong>${result}</strong>
-     </span>
-     <br><small style="color:#666;">${percent} % z ${base}</small>
+        `<strong>Výsledek procent 📊</strong><br><br>
+         <span style="color: green; font-size: 22px;">
+           <strong>${result}</strong>
+         </span>
+         <br><small style="color:#666;">${percent} % z ${base}</small>`;
 }
 
 function calculateChange() {
@@ -174,25 +174,29 @@ function calculateChange() {
 
     let text = "";
     let color = "";
+    let icon = "";
 
     if (change > 0) {
         text = `Nárůst o ${change} %`;
         color = "green";
+        icon = "📈";
     } else if (change < 0) {
         text = `Pokles o ${Math.abs(change)} %`;
         color = "red";
+        icon = "📉";
     } else {
         text = "Žádná změna (0 %)";
         color = "#555";
+        icon = "➖";
     }
 
     document.getElementById("result").style.color = "#555";
     document.getElementById("result").innerHTML =
-    `<strong>Změna hodnoty 📈</strong><br><br>
-     <span style="color: ${color}; font-size: 20px;">
-       <strong>${text}</strong>
-     </span>
-     <br><br><small style="color:#666;">Porovnání ${oldValue} → ${newValue}</small>`;
+        `<strong>Změna hodnoty ${icon}</strong><br><br>
+         <span style="color: ${color}; font-size: 22px;">
+           <strong>${text}</strong>
+         </span>
+         <br><br><small style="color:#666;">Porovnání ${oldValue} → ${newValue}</small>`;
 }
 </script>
 
