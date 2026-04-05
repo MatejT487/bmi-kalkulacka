@@ -124,10 +124,14 @@ function calculateProtein() {
   }
 
   document.getElementById("result").style.color = "#555";
-  document.getElementById("result").innerHTML =
-    `<strong>Denní příjem proteinů 💪</strong><br><br>
-     <span style="color: green;"><strong>${goalText}:</strong> <strong>${protein}</strong> g</span>
-     <br><br><small style="color:#666;">Hodnoty jsou orientační</small>`;
+document.getElementById("result").innerHTML =
+  `<strong>Denní příjem proteinů 💪</strong><br><br>
+
+   <span style="color: green;">
+     <strong>${goalText}:</strong> <strong>${protein}</strong> g
+   </span>
+
+   <br><br><small style="color:#666;">≈ ${goal} g / kg • Hodnoty jsou orientační</small>`;
 }
 </script>
 
