@@ -40,6 +40,7 @@ body {
     padding: 30px;
     max-width: 1400px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .card {
@@ -52,6 +53,8 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     min-height: 170px;
+    width: 100%;
+    max-width: 240px;
 
     display: flex;
     flex-direction: column;
@@ -60,7 +63,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.02);
     box-shadow: 0 14px 30px rgba(0,0,0,0.2);
 }
 
