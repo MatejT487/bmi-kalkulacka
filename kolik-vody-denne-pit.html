@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolik vody denně pít? | Fitness kalkulačky</title>
+  <meta name="description" content="Zjisti, kolik vody denně pít podle své váhy a aktivity. Jednoduchý přehled a praktická kalkulačka příjmu vody zdarma.">
+  <meta name="keywords" content="kolik vody denně pít, denní příjem vody, pitný režim, kolik pít vody, voda podle váhy">
+  <meta name="author" content="Fitness kalkulačky">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f8;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .top-link:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 4px;
+      background: #4CAF50;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 16px;
+    }
+
+    .intro {
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 28px;
+    }
+
+    .box {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin: 30px 0;
+    }
+
+    .cta-box {
+      margin-top: 50px;
+      padding: 30px;
+      background: linear-gradient(135deg, #e8f5e9, #dcedc8);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .cta-box strong {
+      font-size: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 16px;
+      background: #4CAF50;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    ul {
+      padding-left: 22px;
+      font-size: 18px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .box {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .cta-box {
+        padding: 22px;
+      }
+
+      .wrapper {
+        padding: 28px 16px 40px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p, ul {
+        font-size: 17px;
+      }
+
+      .intro {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <a href="index.html" class="top-link">← Zpět na hlavní stránku</a>
+
+    <h1>Kolik vody denně pít?</h1>
+
+    <p class="intro">
+      Zjisti, kolik vody denně bys měl přibližně vypít podle své váhy a úrovně aktivity.
+      V tomto přehledu si vysvětlíme, proč je pitný režim důležitý a jak si denní příjem vody jednoduše spočítat.
+    </p>
+
+    <div class="box">
+      <p><strong>Stručně:</strong> Množství vody, které bys měl denně vypít, závisí hlavně na tělesné váze, pohybu, teplotě prostředí a celkové aktivitě. Při sportu nebo v horku je potřeba pít více.</p>
+    </div>
+
+    <h2>Proč je pitný režim důležitý?</h2>
+    <p>
+      Voda je nezbytná pro správné fungování organismu. Podílí se na regulaci tělesné teploty,
+      transportu živin, trávení i celkovém výkonu během dne.
+    </p>
+    <p>
+      I mírná dehydratace může ovlivnit energii, soustředění, výkon i regeneraci.
+    </p>
+
+    <h2>Kolik vody denně je běžně doporučeno?</h2>
+    <p>
+      Obecně se denní příjem vody často odhaduje podle tělesné váhy. Jednoduché pravidlo je přibližně
+      30 až 40 ml vody na 1 kg tělesné váhy.
+    </p>
+    <ul>
+      <li><strong>Nižší aktivita:</strong> zhruba 35 ml vody na 1 kg váhy</li>
+      <li><strong>Střední aktivita:</strong> zhruba o něco více podle pohybu a pocení</li>
+      <li><strong>Vysoká aktivita:</strong> příjem vody by měl být ještě vyšší</li>
+    </ul>
+
+    <h2>Jak si spočítat denní příjem vody?</h2>
+    <p>
+      Výpočet je jednoduchý. Stačí znát svoji váhu a přihlédnout k tomu, jak moc se během dne hýbeš.
+    </p>
+
+    <p><strong>Příklad:</strong></p>
+    <ul>
+      <li>váha: 70 kg</li>
+      <li>výpočet: 70 × 0,035 = 2,45 litru vody denně</li>
+    </ul>
+
+    <h2>Kdy je potřeba pít více?</h2>
+    <p>
+      Vyšší příjem vody bývá potřeba hlavně při sportu, vyšších teplotách, fyzicky náročné práci
+      nebo při větším pocení.
+    </p>
+
+    <p>
+      <strong>Sport a trénink:</strong><br>
+      Při cvičení tělo ztrácí více tekutin potem, takže je potřeba pitný režim navýšit.
+    </p>
+
+    <p>
+      <strong>Horké počasí:</strong><br>
+      V létě nebo v přetopených místnostech bývá příjem vody vyšší než obvykle.
+    </p>
+
+    <p>
+      <strong>Vyšší aktivita během dne:</strong><br>
+      Čím víc se hýbeš, tím více vody tvoje tělo obvykle potřebuje.
+    </p>
+
+    <h2>Na co si dát pozor?</h2>
+    <p>
+      Výpočty vody jsou orientační. Skutečná potřeba závisí i na složení stravy, teplotě, zdravotním stavu
+      a intenzitě pohybu.
+    </p>
+
+    <p><strong>Důležité je také:</strong></p>
+    <ul>
+      <li>pít průběžně během celého dne</li>
+      <li>nezapomínat na příjem tekutin při sportu</li>
+      <li>sledovat barvu moči jako orientační ukazatel hydratace</li>
+    </ul>
+
+    <div class="cta-box">
+      <strong>Spočítej si svůj přesný denní příjem vody</strong><br><br>
+
+      <a href="kalkulacka-vody.html" class="cta-button">
+        Použít kalkulačku vody
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
