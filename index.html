@@ -156,6 +156,92 @@ body {
     .card p {
         font-size: 15px;
     }
+
+    .articles-section {
+    max-width: 1400px;
+    margin: 10px auto 0;
+    padding: 10px 20px 60px;
+}
+
+.articles-section h2 {
+    color: white;
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+    gap: 24px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.article-card {
+    background: rgba(255,255,255,0.95);
+    color: black;
+    padding: 26px 22px;
+    border-radius: 22px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 280px;
+    min-height: 160px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+.article-card .icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.article-card h3 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.article-card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .articles-section h2 {
+        font-size: 28px;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .article-card {
+        min-height: 145px;
+        padding: 22px 18px;
+    }
+
+    .article-card h3 {
+        font-size: 20px;
+    }
+
+    .article-card p {
+        font-size: 15px;
+    }
 }
 </style>
 </head>
