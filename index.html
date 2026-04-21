@@ -1,325 +1,375 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fitness kalkulačky</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness kalkulačky</title>
+  <meta name="description" content="Fitness kalkulačky zdarma: BMI, kalorie, BMR, proteiny, voda, procenta a užitečné články o výživě a zdravém životním stylu.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #43a047, #2e7d32);
-    color: white;
-    min-height: 100vh;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #43a047, #2e7d32);
+      color: white;
+      min-height: 100vh;
+    }
 
-.hero {
-    text-align: center;
-    padding: 60px 20px 30px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin: 0 0 12px;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 18px;
-    opacity: 0.95;
-    margin: 0;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
-    gap: 24px;
-    justify-content: center;
-    justify-items: center;
-    padding: 30px 20px 50px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.card {
-    background: white;
-    color: black;
-    padding: 28px 22px;
-    border-radius: 24px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    min-height: 170px;
-    width: 100%;
-    max-width: 280px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-}
-
-.icon {
-    font-size: 34px;
-    margin-bottom: 14px;
-}
-
-.card h2 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.card p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.4;
-    color: #333;
-}
-
-/* TABLET */
-@media (max-width: 1024px) {
     .hero {
-        padding: 45px 20px 25px;
+      text-align: center;
+      padding: 50px 20px 24px;
     }
 
     .hero h1 {
-        font-size: 44px;
+      font-size: 48px;
+      margin: 0 0 12px;
+      font-weight: 700;
     }
 
     .hero p {
-        font-size: 17px;
+      font-size: 18px;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: white;
+      color: #2e7d32;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+      opacity: 0.95;
     }
 
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
-        gap: 20px;
-        padding: 25px 18px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+      gap: 24px;
+      justify-content: center;
+      justify-items: center;
+      padding: 30px 20px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .card {
-        min-height: 160px;
-        padding: 24px 20px;
+      background: white;
+      color: black;
+      padding: 28px 22px;
+      border-radius: 24px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-height: 170px;
+      width: 100%;
+      max-width: 280px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .card h2 {
-        font-size: 21px;
-    }
-}
-
-/* MOBIL */
-@media (max-width: 600px) {
-    .hero {
-        padding: 35px 16px 20px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-        line-height: 1.1;
-    }
-
-    .hero p {
-        font-size: 16px;
-        line-height: 1.4;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 20px 16px 35px;
-    }
-
-    .card {
-        min-height: 145px;
-        padding: 22px 18px;
-        border-radius: 20px;
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
     }
 
     .icon {
-        font-size: 30px;
-        margin-bottom: 10px;
+      font-size: 34px;
+      margin-bottom: 14px;
     }
 
     .card h2 {
-        font-size: 20px;
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 700;
     }
 
     .card p {
-        font-size: 15px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #333;
     }
 
     .articles-section {
-    max-width: 1400px;
-    margin: 10px auto 0;
-    padding: 10px 20px 60px;
-}
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 20px 60px;
+    }
 
-.articles-section h2 {
-    color: white;
-    font-size: 34px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
-    gap: 24px;
-    justify-content: center;
-    justify-items: center;
-}
-
-.article-card {
-    background: rgba(255,255,255,0.95);
-    color: black;
-    padding: 26px 22px;
-    border-radius: 22px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%;
-    max-width: 280px;
-    min-height: 160px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.article-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-}
-
-.article-card .icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-.article-card h3 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.article-card p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.4;
-    color: #333;
-}
-
-@media (max-width: 600px) {
     .articles-section h2 {
-        font-size: 28px;
+      color: white;
+      font-size: 34px;
+      text-align: center;
+      margin: 0 0 30px;
+      font-weight: 700;
     }
 
     .articles-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+      gap: 24px;
+      justify-content: center;
+      justify-items: center;
     }
 
     .article-card {
-        min-height: 145px;
-        padding: 22px 18px;
+      background: rgba(255,255,255,0.96);
+      color: black;
+      padding: 26px 22px;
+      border-radius: 22px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+      max-width: 280px;
+      min-height: 160px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .article-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .article-card .icon {
+      font-size: 32px;
+      margin-bottom: 12px;
     }
 
     .article-card h3 {
-        font-size: 20px;
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 700;
     }
 
     .article-card p {
-        font-size: 15px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #333;
     }
-}
-</style>
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+    }
+
+    /* TABLET */
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 42px 20px 24px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .grid,
+      .articles-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+        gap: 20px;
+      }
+
+      .grid {
+        padding: 25px 18px 40px;
+      }
+
+      .articles-section {
+        padding: 0 18px 45px;
+      }
+
+      .card {
+        min-height: 160px;
+        padding: 24px 20px;
+      }
+
+      .card h2 {
+        font-size: 21px;
+      }
+
+      .articles-section h2 {
+        font-size: 30px;
+      }
+    }
+
+    /* MOBIL */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 34px 16px 18px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      .hero-btn {
+        margin-top: 18px;
+        padding: 13px 22px;
+        font-size: 15px;
+      }
+
+      .grid,
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .grid {
+        padding: 20px 16px 35px;
+      }
+
+      .articles-section {
+        padding: 0 16px 40px;
+      }
+
+      .card,
+      .article-card {
+        min-height: 145px;
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      .icon,
+      .article-card .icon {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      .card h2,
+      .article-card h3 {
+        font-size: 20px;
+      }
+
+      .card p,
+      .article-card p {
+        font-size: 15px;
+      }
+
+      .articles-section h2 {
+        font-size: 28px;
+        margin-bottom: 24px;
+      }
+
+      .footer {
+        padding: 24px 16px 30px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="hero">
+  <div class="hero">
     <h1>Fitness kalkulačky</h1>
     <p>Rychlé a moderní nástroje pro tvoje fitness cíle</p>
-</div>
+    <a href="bmi-kalkulacka.html" class="hero-btn">Začít výpočtem BMI</a>
+  </div>
 
-<div class="grid">
+  <div class="grid">
     <a href="bmi-kalkulacka.html" class="card">
-        <div class="icon">📊</div>
-        <h2>BMI kalkulačka</h2>
-        <p>Spočítej své BMI</p>
+      <div class="icon">📊</div>
+      <h2>BMI kalkulačka</h2>
+      <p>Spočítej své BMI</p>
     </a>
 
     <a href="idealni-vaha.html" class="card">
-        <div class="icon">⚖️</div>
-        <h2>Ideální váha</h2>
-        <p>Zjisti ideální váhu</p>
+      <div class="icon">⚖️</div>
+      <h2>Ideální váha</h2>
+      <p>Zjisti ideální váhu</p>
     </a>
 
     <a href="kalkulacka-kalorii.html" class="card">
-        <div class="icon">🔥</div>
-        <h2>Kalorie</h2>
-        <p>Spočítej denní kalorie</p>
+      <div class="icon">🔥</div>
+      <h2>Kalorie</h2>
+      <p>Spočítej denní kalorie</p>
     </a>
 
     <a href="bmr-kalkulacka.html" class="card">
-        <div class="icon">⚡</div>
-        <h2>BMR</h2>
-        <p>Zjisti svůj BMR</p>
+      <div class="icon">⚡</div>
+      <h2>BMR</h2>
+      <p>Zjisti svůj BMR</p>
     </a>
 
     <a href="kalkulacka-proteinu.html" class="card">
-        <div class="icon">💪</div>
-        <h2>Proteiny</h2>
-        <p>Spočítej příjem proteinů</p>
+      <div class="icon">💪</div>
+      <h2>Proteiny</h2>
+      <p>Spočítej příjem proteinů</p>
     </a>
 
     <a href="kalkulacka-vody.html" class="card">
-        <div class="icon">💧</div>
-        <h2>Voda</h2>
-        <p>Zjisti denní příjem vody</p>
+      <div class="icon">💧</div>
+      <h2>Voda</h2>
+      <p>Zjisti denní příjem vody</p>
     </a>
 
     <a href="procenta-kalkulacka.html" class="card">
-        <div class="icon">📈</div>
-        <h2>Procenta</h2>
-        <p>Vypočítej procenta</p>
+      <div class="icon">📈</div>
+      <h2>Procenta</h2>
+      <p>Vypočítej procenta</p>
     </a>
-</div>
+  </div>
 
-    <section class="articles-section">
+  <section class="articles-section">
     <h2>Užitečné články</h2>
 
     <div class="articles-grid">
-        <a href="kolik-kalorii-denne.html" class="article-card">
-            <div class="icon">🔥</div>
-            <h3>Kalorie</h3>
-            <p>Kolik kalorií denně potřebuješ a jak to spočítat</p>
-        </a>
+      <a href="kolik-kalorii-denne.html" class="article-card">
+        <div class="icon">🔥</div>
+        <h3>Kalorie</h3>
+        <p>Kolik kalorií denně potřebuješ a jak to spočítat</p>
+      </a>
 
-        <a href="kolik-proteinu-denne.html" class="article-card">
-            <div class="icon">💪</div>
-            <h3>Proteiny</h3>
-            <p>Kolik proteinů denně potřebuješ podle svého cíle</p>
-        </a>
+      <a href="kolik-proteinu-denne.html" class="article-card">
+        <div class="icon">💪</div>
+        <h3>Proteiny</h3>
+        <p>Kolik proteinů denně potřebuješ podle svého cíle</p>
+      </a>
 
-        <a href="kolik-vody-denne-pit.html" class="article-card">
-            <div class="icon">💧</div>
-            <h3>Voda</h3>
-            <p>Kolik vody denně pít podle váhy a aktivity</p>
-        </a>
+      <a href="kolik-vody-denne-pit.html" class="article-card">
+        <div class="icon">💧</div>
+        <h3>Voda</h3>
+        <p>Kolik vody denně pít podle váhy a aktivity</p>
+      </a>
     </div>
-</section>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Fitness kalkulačky • Jednoduché online nástroje pro fitness a zdravý životní styl</p>
+  </footer>
 
 </body>
 </html>
