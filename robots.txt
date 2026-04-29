@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://matejt487.github.io/bmi-kalkulacka/sitemap.xml
+Sitemap: https://matejt487.github.io/bmi-kalkulacka/sitemap.txt
